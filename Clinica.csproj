@@ -105,10 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\AmbulatorioController.cs" />
     <Compile Include="controller\ConsultaController.cs" />
     <Compile Include="controller\FuncionarioController.cs" />
     <Compile Include="controller\IController.cs" />
     <Compile Include="controller\MedicoController.cs" />
+    <Compile Include="DAO\AmbulatorioDAO.cs" />
     <Compile Include="DAO\BancoDeDados.cs" />
     <Compile Include="DAO\ConsultaDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
@@ -120,9 +122,16 @@
     <Compile Include="MedicosCriar.Designer.cs">
       <DependentUpon>MedicosCriar.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Ambulatorio.cs" />
     <Compile Include="model\Consulta.cs" />
     <Compile Include="model\Funcionarios.cs" />
     <Compile Include="model\Medicos.cs" />
+    <Compile Include="view\criarAmbulatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\criarAmbulatorio.Designer.cs">
+      <DependentUpon>criarAmbulatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\criarConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +143,12 @@
     </Compile>
     <Compile Include="view\criarMedico.Designer.cs">
       <DependentUpon>criarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\edtAmbulatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\edtAmbulatorio.Designer.cs">
+      <DependentUpon>edtAmbulatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="view\edtConsulta.cs">
       <SubType>Form</SubType>
@@ -164,6 +179,12 @@
     </Compile>
     <Compile Include="view\FmrConsulta.Designer.cs">
       <DependentUpon>FmrConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FmrAmbulatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FmrAmbulatorio.Designer.cs">
+      <DependentUpon>FmrAmbulatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Inicio.cs">
       <SubType>Form</SubType>
@@ -209,6 +230,12 @@
     <EmbeddedResource Include="MedicosCriar.resx">
       <DependentUpon>MedicosCriar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\criarAmbulatorio.resx">
+      <DependentUpon>criarAmbulatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\edtAmbulatorio.resx">
+      <DependentUpon>edtAmbulatorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\FmrConsulta.resx">
       <DependentUpon>FmrConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\FmrFuncionario.resx">
       <DependentUpon>FmrFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FmrAmbulatorio.resx">
+      <DependentUpon>FmrAmbulatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

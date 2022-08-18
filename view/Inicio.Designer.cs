@@ -33,11 +33,12 @@
             this.funcionarioBtn = new System.Windows.Forms.Button();
             this.medicoBtn = new System.Windows.Forms.Button();
             this.inicioLbl = new System.Windows.Forms.Label();
+            this.Ambulatorio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pacienteBtn
             // 
-            this.pacienteBtn.Location = new System.Drawing.Point(198, 174);
+            this.pacienteBtn.Location = new System.Drawing.Point(126, 90);
             this.pacienteBtn.Name = "pacienteBtn";
             this.pacienteBtn.Size = new System.Drawing.Size(75, 23);
             this.pacienteBtn.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // consultaBtn
             // 
-            this.consultaBtn.Location = new System.Drawing.Point(346, 174);
+            this.consultaBtn.Location = new System.Drawing.Point(336, 200);
             this.consultaBtn.Name = "consultaBtn";
             this.consultaBtn.Size = new System.Drawing.Size(75, 23);
             this.consultaBtn.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // funcionarioBtn
             // 
-            this.funcionarioBtn.Location = new System.Drawing.Point(346, 224);
+            this.funcionarioBtn.Location = new System.Drawing.Point(336, 90);
             this.funcionarioBtn.Name = "funcionarioBtn";
             this.funcionarioBtn.Size = new System.Drawing.Size(75, 23);
             this.funcionarioBtn.TabIndex = 3;
@@ -67,7 +68,7 @@
             // 
             // medicoBtn
             // 
-            this.medicoBtn.Location = new System.Drawing.Point(198, 224);
+            this.medicoBtn.Location = new System.Drawing.Point(126, 200);
             this.medicoBtn.Name = "medicoBtn";
             this.medicoBtn.Size = new System.Drawing.Size(75, 23);
             this.medicoBtn.TabIndex = 2;
@@ -79,17 +80,28 @@
             // 
             this.inicioLbl.AutoSize = true;
             this.inicioLbl.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inicioLbl.Location = new System.Drawing.Point(237, 113);
+            this.inicioLbl.Location = new System.Drawing.Point(227, 30);
             this.inicioLbl.Name = "inicioLbl";
             this.inicioLbl.Size = new System.Drawing.Size(147, 26);
             this.inicioLbl.TabIndex = 4;
             this.inicioLbl.Text = "Bem vindo(a)!";
             // 
+            // Ambulatorio
+            // 
+            this.Ambulatorio.Location = new System.Drawing.Point(232, 145);
+            this.Ambulatorio.Name = "Ambulatorio";
+            this.Ambulatorio.Size = new System.Drawing.Size(75, 23);
+            this.Ambulatorio.TabIndex = 5;
+            this.Ambulatorio.Text = "Ambulatoriobt";
+            this.Ambulatorio.UseVisualStyleBackColor = true;
+            this.Ambulatorio.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 356);
+            this.ClientSize = new System.Drawing.Size(523, 307);
+            this.Controls.Add(this.Ambulatorio);
             this.Controls.Add(this.inicioLbl);
             this.Controls.Add(this.funcionarioBtn);
             this.Controls.Add(this.medicoBtn);
@@ -110,6 +122,7 @@
         private System.Windows.Forms.Button funcionarioBtn;
         private System.Windows.Forms.Button medicoBtn;
         private System.Windows.Forms.Label inicioLbl;
+        private System.Windows.Forms.Button Ambulatorio;
     }
 }
 

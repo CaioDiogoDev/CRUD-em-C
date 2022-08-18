@@ -40,8 +40,8 @@ namespace Clinica
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Pacientes paciente = new Pacientes();
-            paciente.Show();
+            PacienteController paciente = new PacienteController();
+            paciente.listar();
             this.Close();
         }
 

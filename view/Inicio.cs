@@ -63,5 +63,12 @@ namespace Clinica
             this.Hide();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AmbulatorioController controller = new AmbulatorioController();
+            controller.listar();
+            this.Hide();
+        }
     }
 }

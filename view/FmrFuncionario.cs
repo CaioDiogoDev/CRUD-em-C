@@ -1,4 +1,5 @@
-﻿using Clinica.model;
+﻿using Clinica.controller;
+using Clinica.model;
 using Clinica.view;
 using System;
 using System.Collections;

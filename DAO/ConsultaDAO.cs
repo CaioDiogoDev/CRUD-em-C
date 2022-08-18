@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Clinica
 {
@@ -18,17 +19,18 @@ namespace Clinica
             string sql = "select m.*, p.*,c.data, c.hora  " +
                 "from consultas c " +
                 "join pacientes p on p.codp = c.codp " +
-                "join medicos m on c.codm=m.codm;";
+                "join medicos m on c.codm=m.codm " +
+                "order by data desc ;";
             BancoDeDados bd = new BancoDeDados();
 
 
             Consulta consulta;
             
-
+            
             Paciente paciente = new Paciente();
             Medicos medico = new Medicos();
             MySqlCommand cmd = new MySqlCommand(sql, bd.conectar());
-            string data, hora;
+            string data = "", hora ="";
             int nroa=0;
             try
             {
@@ -57,6 +59,7 @@ namespace Clinica
                     DateTime dataHora = new DateTime();
                     
                     data = data.Split(' ')[0];
+                    Console.WriteLine(data+" "+hora);
                     dataHora = DateTime.ParseExact(data+" "+hora, 
                         "dd/MM/yyyy HH:mm:ss", 
                         CultureInfo.InvariantCulture);
@@ -69,12 +72,12 @@ namespace Clinica
                 }
                 rdr.Close();
             }
-            catch
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("datahora"+data + " " + hora);
+                throw e;
+
             }
-
-
 
             return lista;
         }
@@ -107,7 +110,28 @@ namespace Clinica
 
         public object delete(object chave)
         {
-            throw new NotImplementedException();
+            Consulta consulta = (Consulta)chave;
+            BancoDeDados bd = new BancoDeDados();
+            MySqlConnection conn = bd.conectar();
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = @"delete from consultas 
+                                  where data=@data and hora=@hora";
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@data", consulta.dataHora.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@hora", consulta.dataHora.ToString("HH:mm:ss"));
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Excluido com sucesso!");
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                throw ex;
+            }
+            return consulta;
         }
 
         public object read(object chave)
@@ -117,7 +141,32 @@ namespace Clinica
 
         public object update(object objeto)
         {
-            throw new NotImplementedException();
+            Consulta consulta = (Consulta)objeto;
+            BancoDeDados bd = new BancoDeDados();
+            MySqlConnection conn = bd.conectar();
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = @"update consultas 
+                    set data=@data , hora=@hora
+                    where codm=@CodM and codp=@CodP";
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@codm", consulta.medicos.CodM);
+                cmd.Parameters.AddWithValue("@codp", consulta.paciente.CodP);
+                cmd.Parameters.AddWithValue("@data", consulta.dataHora.ToString("yyyy-mm-dd"));
+                cmd.Parameters.AddWithValue("@hora", consulta.dataHora.ToString("hh:mm:ss"));
+
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Criado com Sucesso!");
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                throw ex;
+            }
+            return consulta;
         }
     }
 }

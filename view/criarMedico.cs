@@ -45,8 +45,8 @@ namespace Clinica.view
 
         private void voltar_Click(object sender, EventArgs e)
         {
-            FmrMedicos med = new FmrMedicos();
-            med.Show();
+            MedicoController medicocontroler = new MedicoController();            
+            medicocontroler.listar();
             this.Close();
         }
 

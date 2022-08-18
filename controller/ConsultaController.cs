@@ -53,7 +53,11 @@ namespace Clinica
 
         public void deletar(object objeto)
         {
-            throw new NotImplementedException();
+            Consulta consulta = (Consulta)objeto; 
+            ConsultaDAO consultaDAO = new ConsultaDAO();
+            consultaDAO.delete(consulta);
+            new FmrConsulta(consultaDAO.all()).Show();
+     
         }
 
         public void listar()
@@ -67,7 +71,15 @@ namespace Clinica
 
         public void salvar(object objeto)
         {
-            throw new NotImplementedException();
+            Consulta consulta = (Consulta)objeto;
+
+            ConsultaDAO consultadao = new ConsultaDAO();
+
+            consulta = (Consulta)consultadao.update(consulta);
+
+            ArrayList todos = consultadao.all();
+            FmrConsulta listagem = new FmrConsulta(todos);
+            listagem.Show();
         }
     }
 }

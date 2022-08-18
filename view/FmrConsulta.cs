@@ -29,7 +29,7 @@ namespace Clinica.view
                 this.listagem.Rows.Add();
                 this.listagem.Rows[x].Cells[0].Value = "Dr(a) " + c.medicos.Nome;
                 this.listagem.Rows[x].Cells[1].Value = c.paciente.Nome;
-                this.listagem.Rows[x].Cells[2].Value = c.dataHora.ToString("dd/MM/yyyy HH:mm:ss");
+                this.listagem.Rows[x].Cells[2].Value = c.dataHora.ToString("yyyy-MM-dd HH:mm:ss");
                 this.listagem.Rows[x].Cells[3].Value = c.medicos.CodM;
                 this.listagem.Rows[x].Cells[4].Value = c.paciente.CodP;
                 x++;
@@ -66,7 +66,7 @@ namespace Clinica.view
             String dataHora = this.listagem.Rows[rowindex].Cells[2].Value.ToString();
             string codm = this.listagem.Rows[rowindex].Cells[3].Value.ToString();
             string codp = this.listagem.Rows[rowindex].Cells[4].Value.ToString();
-            DateTime dataHoraFormata = DateTime.ParseExact(dataHora, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            DateTime dataHoraFormata = DateTime.ParseExact(dataHora, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
             Paciente p = new Paciente();
             Medicos m = new Medicos();
             p.CodP = int.Parse(codp);
@@ -84,7 +84,24 @@ namespace Clinica.view
 
         private void button3_Click(object sender, EventArgs e)
         {
+            int rowindex = this.listagem.CurrentCell.RowIndex;
+            String dataHora = this.listagem.Rows[rowindex].Cells[2].Value.ToString();
+            string codm = this.listagem.Rows[rowindex].Cells[3].Value.ToString();
+            string codp = this.listagem.Rows[rowindex].Cells[4].Value.ToString();
+            DateTime dataHoraFormata = DateTime.ParseExact(dataHora, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            Paciente p = new Paciente();
+            Medicos m = new Medicos();
+            p.CodP = int.Parse(codp);
+            m.CodM = int.Parse(codm);
 
+            Consulta c = new Consulta();
+            c.medicos = m;
+            c.paciente = p;
+            c.dataHora = dataHoraFormata;
+
+            ConsultaController controller = new ConsultaController();
+            controller.deletar(c);
+            this.Hide();
         }
 
         private void button4_Click_1(object sender, EventArgs e)

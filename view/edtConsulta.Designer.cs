@@ -56,6 +56,7 @@
             this.salvar.TabIndex = 43;
             this.salvar.Text = "Salvar";
             this.salvar.UseVisualStyleBackColor = true;
+            this.salvar.Click += new System.EventHandler(this.salvar_Click);
             // 
             // label3
             // 
@@ -63,9 +64,10 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(339, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 24);
+            this.label3.Size = new System.Drawing.Size(151, 24);
             this.label3.TabIndex = 42;
-            this.label3.Text = "Criar Consulta";
+            this.label3.Text = "Editar Consulta";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -100,6 +102,7 @@
             this.medicos_combo.Name = "medicos_combo";
             this.medicos_combo.Size = new System.Drawing.Size(263, 21);
             this.medicos_combo.TabIndex = 38;
+            this.medicos_combo.SelectedIndexChanged += new System.EventHandler(this.Medicos_combo_SelectedIndexChanged);
             // 
             // dataHoraConsulta
             // 

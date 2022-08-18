@@ -9,7 +9,7 @@ namespace Clinica
     internal class BancoDeDados
     {
         static string conexao = "server=localhost;port=3306;" +
-                "database=cursosenai;uid=root;password=root123";
+                "database=cursosenai;uid=root;";
         public MySqlConnection conectar()
         {
             MySqlConnection connection = new MySqlConnection(conexao);
